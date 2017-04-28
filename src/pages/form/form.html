@@ -34,13 +34,13 @@
       
       <ion-item>
         <ion-input type="text"
-            placeholder="Fecha de nacimiento: YY/MM/DD"
+            placeholder="Fecha de nacimiento: AAAA/MM/DD"
             formControlName="birth" ></ion-input>
       </ion-item>
       <div class="error" *ngIf='birthF.hasError("pattern") && (birthF.touched || submit)'>
-        La fecha de nacimiento debe seguir este formato: YY/MM/DD. Y ser una fecha conceptualmente válida</div>
+        La fecha de nacimiento debe seguir este formato: AAAA/MM/DD. Y ser una fecha conceptualmente válida</div>
       <div class="error" *ngIf='birthF.hasError("required") && (birthF.touched || submit)'>
-        La fecha de nacimiento debe seguir este formato: YY/MM/DD. Y ser una fecha conceptualmente válida</div>
+        La fecha de nacimiento debe seguir este formato: AAAA/MM/DD. Y ser una fecha conceptualmente válida</div>
       
       <ion-item>
         <ion-label item-left>RFC:</ion-label>

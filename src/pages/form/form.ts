@@ -29,7 +29,7 @@ export class Form {
       name: ['', [Validators.required]],
       pat: ['', [Validators.required]],
       mat: ['', [Validators.required]],
-      birth: ['', [Validators.pattern(/[0-9]{2}\/(0[1-9]|1[1-2])\/(0[1-9]|1[1-9]|2[1-9]|3[0-1])/), Validators.required]]
+      birth: ['', [Validators.pattern(/[0-9]{4}\/(0[1-9]|1[1-2])\/(0[1-9]|1[1-9]|2[1-9]|3[0-1])/), Validators.required]]
     });
 
     this.nameF = this.rfcForm.controls['name'];
