@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>form</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-label>{{userService.getUserName()}}</ion-label>
+  <ion-list>
+    <form [formGroup]='rfcForm' (ngSubmit)='onSubmit(rfcForm)'>
+      <ion-item>
+        <ion-input type="text"
+            placeholder="Nombre"
+            formControlName="name" ></ion-input>
+      </ion-item>
+      <div class="error" *ngIf='nameF.hasError("required") && (nameF.touched || submit)'>
+        El nombre es obligatorio</div>
+      
+      <ion-item>
+        <ion-input type="text"
+            placeholder="Apellido Paterno"
+            formControlName="pat" ></ion-input>
+      </ion-item>
+      <div class="error" *ngIf='patF.hasError("required") && (patF.touched || submit)'>
+        El apellido paterno es obligatorio</div>
+      
+      <ion-item>
+        <ion-input type="text"
+            placeholder="Apellido Materno"
+            formControlName="mat" ></ion-input>
+      </ion-item>
+      <div class="error" *ngIf='matF.hasError("required") && (matF.touched || submit)'>
+        El apellido materno es obligatorio</div>
+      
+      <ion-item>
+        <ion-input type="text"
+            placeholder="Fecha de nacimiento: YY/MM/DD"
+            formControlName="birth" ></ion-input>
+      </ion-item>
+      <div class="error" *ngIf='birthF.hasError("pattern") && (birthF.touched || submit)'>
+        La fecha de nacimiento debe seguir este formato: YY/MM/DD. Y ser una fecha conceptualmente válida</div>
+      <div class="error" *ngIf='birthF.hasError("required") && (birthF.touched || submit)'>
+        La fecha de nacimiento debe seguir este formato: YY/MM/DD. Y ser una fecha conceptualmente válida</div>
+      
+      <ion-item>
+        <ion-label item-left>RFC:</ion-label>
+        <ion-label item-right>{{rfc}}</ion-label>
+      </ion-item>
+      <button ion-button block type="submit">Consultar RFC</button>
+    </form>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <form [formGroup]='loginForm' (ngSubmit)='onSubmit(loginForm)'>
+      <ion-item>
+        <ion-input type="text"
+            placeholder='Nombre de usuario'
+            formControlName='name'></ion-input>
+      </ion-item>
+      <div class="error" *ngIf='nameF.invalid'>
+        <p *ngIf='nameF.hasError("pattern") && (nameF.touched || submit)'>
+          Ingresa sólo letras minúsculas</p>
+        <p *ngIf='nameF.hasError("required") && (nameF.touched || submit)'>
+          El nombre es obligatorio</p>
+        <p *ngIf='nameF.hasError("minlength") && (nameF.touched || submit)'>
+          El nombre debe contener mínimo 6 letras</p>
+      </div>
+
+      <ion-item>
+        <ion-input type="text"
+            placeholder='Contraseña'
+            formControlName='pass'></ion-input>
+      </ion-item>
+      <div class="error" *ngIf='passF.invalid'>
+        <p *ngIf='passF.hasError("pattern") && (passF.touched || submit)'>
+          Por lo menos 1 special char, 1 dig y letras</p>
+        <p *ngIf='passF.hasError("required") && (passF.touched || submit)'>
+          La contraseña es obligatoria</p>
+        <p *ngIf='passF.hasError("minlength") && (passF.touched || submit)'>
+          La contraseña debe contener mínimo 8 letras</p>
+      </div>
+
+      <button ion-button block type="submit">Iniciar sesión</button>
+      <div class="error" *ngIf='invalidLogin && submit'>
+        Usuario o contraseña incorrectos</div>
+    </form>
+  </ion-list>
+</ion-content>
